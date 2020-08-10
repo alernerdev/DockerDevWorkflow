@@ -1,0 +1,27 @@
+version: '3'
+services:
+    web:
+        build:
+# workaround to use the custom filename
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+        - "3000:3000" 
+        volumes:
+            - /app/node_modules
+# map current folder on my machine to /app inside container
+            - .:/app
+
+# alternative to running one container and connecting to it f
+# from another terminal and exec'ing tests
+# the downside here is that you cannot type and invoke interactive menu
+    tests:
+        build:
+            # workaround to use the custom filename
+            context: .
+            dockerfile: Dockerfile.dev            
+        volumes:
+            - /app/node_modules
+# map current folder on my machine to /app inside container
+            - .:/app
+        command: ["npm", "run", "test"]

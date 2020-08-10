@@ -7,7 +7,7 @@ services:
     - docker
 
 before_install:
-# using the dev file becuase it can run test files
+# using the dev file becuase it can run test git files
 # tagging it so that we can refer to it later on
     - docker build -t redridinghood/docker-dev-workflow -f dockerfile.dev .
     

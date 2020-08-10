@@ -1,0 +1,15 @@
+sudo: required
+
+language: generic
+
+services:
+# telling travis to install docker
+    - docker
+
+before_install:
+# using the dev file becuase it can run test files
+# tagging it so that we can refer to it later on
+    - docker build -t redridinghood/docker-dev-workflow -f dockerfile.dev .
+    
+script:
+    - docker run -e CI=true redridinghood/docker-dev-workflow npm run test

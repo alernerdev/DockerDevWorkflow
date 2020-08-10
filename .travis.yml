@@ -9,7 +9,7 @@ services:
 before_install:
 # using the dev file becuase it can run test git files
 # tagging it so that we can refer to it later on
-    - docker build -t redridinghood/docker-dev-workflow -f dockerfile.dev .
+    - docker build -t redridinghood/docker-dev-workflow -f Dockerfile.dev .
     
 script:
     - docker run -e CI=true redridinghood/docker-dev-workflow npm run test

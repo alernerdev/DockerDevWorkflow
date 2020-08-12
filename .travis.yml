@@ -13,3 +13,18 @@ before_install:
     
 script:
     - docker run -e CI=true redridinghood/docker-dev-workflow npm run test
+
+# these values come from my AWS beanstalk setup
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "docker-dev-workflow"
+    env: "DockerDevWorkflow-env"
+    bucket_name: "elasticbeanstalk-us-east-1-538911721305"
+    bucket_path: "docker-dev-workflow"
+# do deploy only when pushing to master
+    on:
+        branch: master
+        
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY

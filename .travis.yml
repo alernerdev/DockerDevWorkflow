@@ -19,7 +19,7 @@ deploy:
     provider: elasticbeanstalk
     region: "us-east-1"
     app: "docker-dev-workflow"
-    env: "DockerDevWorkflow-env"
+    env: "DockerDevWorkflow-env-1"
     bucket_name: "elasticbeanstalk-us-east-1-538911721305"
     bucket_path: "docker-dev-workflow"
 # do deploy only when pushing to master

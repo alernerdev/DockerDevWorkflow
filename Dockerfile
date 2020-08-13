@@ -5,7 +5,7 @@ FROM node:alpine as builder
 
 WORKDIR '/app'
 
-COPY package.json .
+COPY package.json ./
  
 # the volume system is not needed here since we are not trying to share my
 # machine and docker container storage the way I did it for dev

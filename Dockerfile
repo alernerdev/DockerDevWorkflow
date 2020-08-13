@@ -17,5 +17,7 @@ RUN npm run build
 
 # RUN phase
 FROM nginx
+# elastic beanstalk is looking for this instruction
+EXPOSE 80
 # copy over from builder phase to where nginx runs static content from
 COPY --from=builder /app/build /usr/share/nginx/html

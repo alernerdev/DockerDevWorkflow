@@ -1,7 +1,8 @@
 # 2 step process, with 2 base images
 
 # BUILD phase
-FROM node:alpine as builder
+# FROM node:alpine as builder
+FROM node:alpine
 
 WORKDIR '/app'
 
@@ -20,4 +21,5 @@ FROM nginx
 # elastic beanstalk is looking for this instruction
 EXPOSE 80
 # copy over from builder phase to where nginx runs static content from
-COPY --from=builder /app/build /usr/share/nginx/html
+#COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
